@@ -1,17 +1,14 @@
-# ip-duplicado-detector
-ip-duplicado-detector
-import subprocess
-import re
-from collections import Counter
+# Detector de IP duplicado
 
-print("Escaneando dispositivos da rede...")
+Script em Python para identificar IPs duplicados na rede local.
 
-arp_output = subprocess.check_output("arp -a", shell=True).decode()
-ips = re.findall(r'\d+\.\d+\.\d+\.\d+', arp_output)
+## Problema
+IPs duplicados causam lentidão e falhas de conexão.
 
-ip_count = Counter(ips)
+## Solução
+O script analisa a tabela ARP e detecta conflitos.
 
-print("\nResultado:")
-for ip, count in ip_count.items():
-    if count > 1:
-        print(f"IP duplicado encontrado: {ip} ({count} vezes)")
+## Como usar
+1. Instale Python
+2. Execute:
+python ip_scan.py
